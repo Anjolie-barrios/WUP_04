@@ -57,7 +57,13 @@ model1 <- aov(WORDSUM~DEGREE,data=scores)
 summary.aov(model1)
 ```
   
-The probability that the all the groups have the same mean is very low: only 0.0236% (taken from the p value, which is incredibly low), so the null hypothesis is rejected. 
+The probability that the all the groups have the same mean is very low: only 0.0236% (taken from the p value, which is incredibly low), so the null hypothesis is rejected.  
+```{r}
+par(mar = c(3, 16, 2, 2))
+plot(TukeyHSD(model1, conf.level = 0.99), las=2)
+```
+  
+With very high confidence (99%), we can say that the most meaningful differences found were between Graduate vs High School and Graduate vs LT High School. 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
 
